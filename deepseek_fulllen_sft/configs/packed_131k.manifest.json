@@ -1,0 +1,188 @@
+{
+  "tool": "pack_traj.py",
+  "generated_utc": "2026-09-15T12:18:53Z",
+  "src": "/home/i-dingleilei/agentic_task_labeling/pipeline/data_select_2609/sft/raw/glm-5.3-deepseek/chat_clean.jsonl",
+  "src_sha256": "72fbd873d4247bbe3feec10825c9663a726ea0c0ddc4df3bfe253fcbe8849c77",
+  "src_bytes": 571878934,
+  "out": "/home/i-dingleilei/agentic_task_labeling/pipeline/data_select_2609/sft/packed_glm53ds_131k/train.jsonl",
+  "out_lines": 3519,
+  "tokenizer": "/mnt/ws-jfs/posttrain/i-xuyiming/paper/rsi_2608/qwen-3.8-27B/model/Qwen3.8-27B",
+  "chat_template_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+  "config": {
+    "max_len": 131072,
+    "thinking": "off",
+    "apply_chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "overlength": "split",
+    "max_per_prompt": 0,
+    "holdout_head": 64,
+    "shuffle_seed": 1234,
+    "limit": 0,
+    "strict_special": true,
+    "stats_only": false,
+    "shards": 64,
+    "signature": "98539839e212b032"
+  },
+  "mask_rule": "scored := assistant content|trim  +  '<|im_end|>'.  MASKED: the whole '<|im_start|>assistant\\n<think>\\n\\n</think>\\n\\n' prefix (byte-identical to the serve-time generation prompt), every user turn, the system/reasoning-effort prologue if any, and the '\\n' after <|im_end|>. labels are UNSHIFTED input ids or -100.",
+  "eval_split": {
+    "note": "trainer takes eval as a PREFIX (all_samples[:min(int(0.15*N), eval_max)]); set the trainer's --eval-max to holdout_head",
+    "holdout_head_records": 64,
+    "prompt_groups_total": 3068,
+    "prompt_groups_in_head": 64,
+    "head_tail_prompt_overlap": 0
+  },
+  "counts": {
+    "in": 3069,
+    "kept": 3519,
+    "skipped": 0,
+    "truncated": 0,
+    "pieces": 838,
+    "unsplittable": 0
+  },
+  "records_selected": 3069,
+  "tokens_total": 198671492,
+  "tokens_scored": 99237113,
+  "scored_fraction": 0.499504,
+  "skip_reasons": {},
+  "length_distribution_raw_per_record": {
+    "n": 3069,
+    "total_tokens": 206870464,
+    "mean": 67406,
+    "p01": 10104,
+    "p10": 18654,
+    "p25": 27092,
+    "p50": 42671,
+    "p75": 79784,
+    "p90": 148966,
+    "p95": 197731,
+    "p99": 313165,
+    "max": 1621942,
+    "over": {
+      "2048": {
+        "records_over": 3068,
+        "frac_records_over": 0.999674,
+        "tokens_if_capped": 6284353,
+        "frac_tokens_kept_if_capped": 0.030378
+      },
+      "4096": {
+        "records_over": 3067,
+        "frac_records_over": 0.999348,
+        "tokens_if_capped": 12566222,
+        "frac_tokens_kept_if_capped": 0.060744
+      },
+      "8192": {
+        "records_over": 3058,
+        "frac_records_over": 0.996416,
+        "tokens_if_capped": 25119314,
+        "frac_tokens_kept_if_capped": 0.121425
+      },
+      "16384": {
+        "records_over": 2859,
+        "frac_records_over": 0.931574,
+        "tokens_if_capped": 49551915,
+        "frac_tokens_kept_if_capped": 0.239531
+      },
+      "24576": {
+        "records_over": 2449,
+        "frac_records_over": 0.79798,
+        "tokens_if_capped": 71386438,
+        "frac_tokens_kept_if_capped": 0.345078
+      },
+      "32768": {
+        "records_over": 1951,
+        "frac_records_over": 0.635712,
+        "tokens_if_capped": 89432572,
+        "frac_tokens_kept_if_capped": 0.432312
+      },
+      "65536": {
+        "records_over": 979,
+        "frac_records_over": 0.318996,
+        "tokens_if_capped": 134805923,
+        "frac_tokens_kept_if_capped": 0.651644
+      },
+      "131072": {
+        "records_over": 388,
+        "frac_records_over": 0.126426,
+        "tokens_if_capped": 175354367,
+        "frac_tokens_kept_if_capped": 0.847653
+      }
+    }
+  },
+  "length_distribution_emitted_samples": {
+    "n": 3519,
+    "total_tokens": 198671492,
+    "mean": 56456,
+    "p01": 6332,
+    "p10": 17485,
+    "p25": 26663,
+    "p50": 43059,
+    "p75": 79712,
+    "p90": 129078,
+    "p95": 130676,
+    "p99": 130995,
+    "max": 131072,
+    "over": {
+      "2048": {
+        "records_over": 3508,
+        "frac_records_over": 0.996874,
+        "tokens_if_capped": 7199694,
+        "frac_tokens_kept_if_capped": 0.036239
+      },
+      "4096": {
+        "records_over": 3495,
+        "frac_records_over": 0.99318,
+        "tokens_if_capped": 14372706,
+        "frac_tokens_kept_if_capped": 0.072344
+      },
+      "8192": {
+        "records_over": 3457,
+        "frac_records_over": 0.982381,
+        "tokens_if_capped": 28631682,
+        "frac_tokens_kept_if_capped": 0.144116
+      },
+      "16384": {
+        "records_over": 3210,
+        "frac_records_over": 0.912191,
+        "tokens_if_capped": 56123923,
+        "frac_tokens_kept_if_capped": 0.282496
+      },
+      "24576": {
+        "records_over": 2769,
+        "frac_records_over": 0.786871,
+        "tokens_if_capped": 80719619,
+        "frac_tokens_kept_if_capped": 0.406297
+      },
+      "32768": {
+        "records_over": 2234,
+        "frac_records_over": 0.634839,
+        "tokens_if_capped": 101228149,
+        "frac_tokens_kept_if_capped": 0.509525
+      },
+      "65536": {
+        "records_over": 1129,
+        "frac_records_over": 0.32083,
+        "tokens_if_capped": 153587817,
+        "frac_tokens_kept_if_capped": 0.773074
+      },
+      "131072": {
+        "records_over": 0,
+        "frac_records_over": 0.0,
+        "tokens_if_capped": 198671492,
+        "frac_tokens_kept_if_capped": 1.0
+      }
+    }
+  },
+  "verification": {
+    "checked": 32,
+    "v1_ok": 32,
+    "v2_ok": 32,
+    "v3_turns": 2587,
+    "v3_turns_ok": 2587,
+    "v4_turns_ok": 2587,
+    "v5_ok": 32,
+    "v6_ok": 32,
+    "failures": []
+  },
+  "wall_s": 323.0
+}
